@@ -13,6 +13,8 @@ Java SpringBoot 项目初始模板，整合了常用框架和示例代码，大�
 - Apache Commons Lang3 工具类
 - Lombok 注解
 - Swagger + Knife4j 接口文档
+- SpringCache 缓存
+- Sharding-jdbc 主从复制
 - Spring Boot 调试工具和项目处理器
 - 全局请求响应拦截器（记录日志）
 - 全局异常处理器
