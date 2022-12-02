@@ -1,4 +1,10 @@
+server:
+  port: 7529
+  servlet:
+    context-path: /api
 spring:
+#  profiles:
+#    active: dev #加载prod配置文件,优先使用prod中的配置
   application:
     name: springboot-init
   # DataSource Config
@@ -23,10 +29,6 @@ spring:
   cache:
     redis:
       time-to-live: 180000 #缓存时间30分钟
-server:
-  port: 7529
-  servlet:
-    context-path: /api
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -39,3 +41,4 @@ mybatis-plus:
 
 upload:
   filePath: F:\WorkImage\
+
