@@ -3,7 +3,7 @@ package cn.uniqueww.project.constant;
 /**
  * 用户常量
  *
- * @author yupi
+ * @author knowei
  */
 public interface UserConstant {
 

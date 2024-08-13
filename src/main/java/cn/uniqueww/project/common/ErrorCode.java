@@ -3,7 +3,7 @@ package cn.uniqueww.project.common;
 /**
  * 错误码
  *
- * @author yupi
+ * @author knowei
  */
 public enum ErrorCode {
 
