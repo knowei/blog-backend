@@ -1,5 +1,5 @@
 server:
-  port: 7529
+  port: 7528
   servlet:
     context-path: /api
 spring:
@@ -10,7 +10,7 @@ spring:
   # DataSource Config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/my_db
+    url: jdbc:mysql://localhost:3306/kblog
     username: root
     password: 123456
   mvc:
@@ -29,9 +29,12 @@ spring:
   cache:
     redis:
       time-to-live: 180000 #缓存时间30分钟
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 mybatis-plus:
   configuration:
-    map-underscore-to-camel-case: false
+    map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
@@ -40,5 +43,4 @@ mybatis-plus:
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
 upload:
-  filePath: F:\WorkImage\
-
+  filePath: D:\WorkImage\
