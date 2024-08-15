@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liwen.blog.mapper.CommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.liwen.blog.model.entity.Comment">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="postId" column="post_id" jdbcType="INTEGER"/>
+            <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+            <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+            <result property="treeId" column="tree_id" jdbcType="INTEGER"/>
+            <result property="commentLike" column="comment_like" jdbcType="INTEGER"/>
+            <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,content,user_id,
+        post_id,created_at,updated_at,
+        tree_id,comment_like,parent_id
+    </sql>
+    <select id="getByPostId" resultType="com.liwen.blog.model.entity.Comment">
+        select
+            <include refid="Base_Column_List"/>
+            from tb_comment
+        where
+            1=1
+        <if test="comment_id != null">
+            and post_id = #{post_id} and parent_id = #{comment_id} and tree_id = 2
+        </if>
+        <if test="comment_id == null || comment_id == 0">
+            and post_id = #{post_id}  and tree_id = 1
+        </if>
+        order by created_at desc
+
+    </select>
+</mapper>

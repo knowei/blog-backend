@@ -5,22 +5,20 @@
 <mapper namespace="com.liwen.blog.mapper.UserMapper">
 
     <resultMap id="BaseResultMap" type="com.liwen.blog.model.entity.User">
-        <id property="id" column="id" jdbcType="BIGINT"/>
-        <result property="userName" column="userName" jdbcType="VARCHAR"/>
-        <result property="userAccount" column="userAccount" jdbcType="VARCHAR"/>
-        <result property="userAvatar" column="userAvatar" jdbcType="VARCHAR"/>
-        <result property="gender" column="gender" jdbcType="TINYINT"/>
-        <result property="userRole" column="userRole" jdbcType="VARCHAR"/>
-        <result property="userPassword" column="userPassword" jdbcType="VARCHAR"/>
-        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-        <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="realname" column="realname" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="roleId" column="role_id" jdbcType="INTEGER"/>
+            <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+            <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,userName,userAccount,
-        userAvatar,gender,userRole,
-        userPassword,createTime,updateTime,
-        isDelete
+        id,avatar,username,
+        realname,email,password,
+        role_id,created_at,updated_at
     </sql>
 </mapper>

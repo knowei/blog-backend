@@ -6,50 +6,37 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 /**
  * 
- * @TableName tb_user
+ * @TableName tb_comment
  */
-@TableName(value ="tb_user")
+@TableName(value ="tb_comment")
 @Data
-public class User implements Serializable {
+public class Comment implements Serializable {
     /**
-     * 用户id
+     * 评论id
      */
     @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 用户头像
+     * 评论内容
      */
-    private String avatar;
+    private String content;
 
     /**
-     * 账号名称
+     * 用户id
      */
-    private String username;
+    private Integer userId;
 
     /**
-     * 用户真实姓名
+     * 文章id
      */
-    private String realname;
-
-    /**
-     * 用户邮箱
-     */
-    private String email;
-
-    /**
-     * 用户密码
-     */
-    private String password;
-
-    /**
-     * 用户权限id
-     */
-    private Integer roleId;
+    private Integer postId;
 
     /**
      * 创建时间
@@ -60,6 +47,24 @@ public class User implements Serializable {
      * 更新时间
      */
     private Date updatedAt;
+
+    /**
+     * 一级评论
+     */
+    private Integer treeId;
+
+    /**
+     * 点赞次数
+     */
+    private Integer commentLike;
+
+    /**
+     * 二级评论
+     */
+    private Integer parentId;
+
+    @TableField(exist = false)
+    private List<Comment> commList;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
